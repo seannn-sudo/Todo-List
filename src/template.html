@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="sidebar__profile">
+          <a href="#" id="profile-name" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">account_circle</span>
+            Sean</a
+          >
+          <button id="sidebar__toggle-btn">
+            <span class="material-symbols-outlined">left_panel_close</span>
+          </button>
+        </div>
+        <nav>
+          <a href="#" id="add-task" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">add_circle</span> Add
+            Task</a
+          >
+          <a href="#" id="search" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">search</span> Search</a
+          >
+          <a href="#" id="all-tasks" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">list</span> All Tasks</a
+          >
+          <a href="#" id="today-tasks" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">calendar_today</span>
+            Today</a
+          >
+          <a href="#" id="upcoming-tasks" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">upcoming</span> Upcoming</a
+          >
+          <a href="#" id="important-tasks" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">task</span> Done</a
+          >
+          <a href="#" id="important-tasks" class="sidebar__nav-link"
+            ><span class="material-symbols-outlined">filter_list</span>
+            Filter</a
+          >
+        </nav>
+        <h3>Projects</h3>
+        <ul id="project-list">
+          <!-- Project list will be dynamically populated here -->
+        </ul>
+        <button id="add-project">
+          <span class="material-symbols-outlined">add</span> Add Project
+        </button>
+      </aside>
+      <main class="content">
+        <div id="tasks-container">
+          <!-- Tasks will be dynamically populated here -->
+        </div>
+        <button id="add-task">
+          <span class="material-symbols-outlined">add_task</span> Add Task
+        </button>
+      </main>
+      <footer>
+        © <span id="currentYear"></span> Sean, All rights reserved.
+      </footer>
+    </div>
+
+    <!-- Modal for taskManager -->
+    <div class="modal-container initially-hidden">
+      <form id="task-modal">
+        <div class="task-modal__info">
+          <input
+            type="text"
+            id="task-name"
+            name="task-name"
+            placeholder="Task name"
+            required
+          />
+          <textarea
+            id="task-description"
+            name="task-description"
+            placeholder="Description"
+          ></textarea>
+        </div>
+        <div class="task-modal__controls">
+          <div class="task-modal__due-date-button">
+            <a data-toggle
+              ><span class="icon material-symbols-outlined"
+                >edit_calendar</span
+              ></a
+            >
+            <input
+              type="text"
+              id="due-date"
+              name="due-date"
+              placeholder="Due date"
+              data-input
+            />
+          </div>
+          <div class="task-modal__task-priority-button">
+            <span class="icon material-symbols-outlined">flag</span>
+            <select id="task-priority" name="task-priority">
+              <option value="" disabled selected>Priority</option>
+              <option value="None">None</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <!-- <div class="task-modal__add-project-button">
+                        <label for="project">Add to Project:</label>
+                        <select id="project" name="project">
+                          <option value="">Select a project</option>
+                        </select>
+                      </div> -->
+        </div>
+        <div class="task-modal__actions">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="add-task-btn">Submit</button>
+        </div>
+        <input type="hidden" id="taskId" name="taskId" />
+      </form>
+    </div>
+  </body>
+</html>
